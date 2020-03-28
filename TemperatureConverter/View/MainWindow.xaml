@@ -41,6 +41,7 @@
             </Setter>
         </Style>
         <local:CelsiusConverter x:Key="CelsiusConverter"/>
+        <local:FahrenheitConverter x:Key="FahrenheitConverter"/>
     </Window.Resources>
     <StackPanel>
         <Grid>
@@ -65,7 +66,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Fahrenheit" Style="{StaticResource labelStyle}"/>
-            <TextBox Grid.Row="1" x:Name="textBoxFahrenheit" Style="{StaticResource textBoxStyle}" />
+                    <TextBox Grid.Row="1" x:Name="textBoxFahrenheit" Text="{Binding ElementName=kelvinSlider,Path=Value,Converter={StaticResource FahrenheitConverter},UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource textBoxStyle}" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>

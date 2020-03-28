@@ -59,4 +59,23 @@ namespace View
             return kelvin;
         }
     }
+
+    public class FahrenheitConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var kelvin = (double)value;
+            var fahrenheit = kelvin * 9 / 5 - 459.67;
+
+            return fahrenheit;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var fahrenheit = double.Parse((string)value);
+            var kelvin = (fahrenheit + 459.67)*5/9;
+
+            return kelvin;
+        }
+    }
 }
