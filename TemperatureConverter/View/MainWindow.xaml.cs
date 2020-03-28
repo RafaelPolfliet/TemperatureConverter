@@ -25,22 +25,42 @@ namespace View
             InitializeComponent();
         }
 
-        private void ConvertToCelsius(object sender, RoutedEventArgs e)
+      
+
+        private void ConvertCelsius(object sender, RoutedEventArgs e)
+        {
+            Double cels = Double.Parse(textBoxCelsius.Text);
+
+            Double fahr = cels * 9 / 5 + 32;
+
+            Double kelv = cels + 273.15;
+
+            textBoxFahrenheit.Text = fahr.ToString();
+            textBoxKelvin.Text = kelv.ToString();
+        }
+
+        private void ConvertFahrenheit(object sender, RoutedEventArgs e)
         {
             Double fahr = Double.Parse(textBoxFahrenheit.Text);
 
             Double cels = (fahr - 32) * 5 / 9;
 
+            Double kelv = cels + 273.15;
+
             textBoxCelsius.Text = cels.ToString();
+            textBoxKelvin.Text = kelv.ToString();
         }
 
-        private void ConvertToFahrenheit(object sender, RoutedEventArgs e)
+        private void ConvertKelvin(object sender, RoutedEventArgs e)
         {
-            Double cels = Double.Parse(textBoxCelsius.Text);
+            Double kelv = Double.Parse(textBoxKelvin.Text);
 
-            Double fahr = cels * 9/5 +32;
+            Double cels = kelv - 273.15;
+
+            Double fahr = cels * 9 / 5 + 32;
 
             textBoxFahrenheit.Text = fahr.ToString();
+            textBoxCelsius.Text = cels.ToString();
         }
     }
 }
