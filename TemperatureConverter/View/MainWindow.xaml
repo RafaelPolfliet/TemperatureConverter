@@ -53,8 +53,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Celsius" Style="{StaticResource labelStyle}" />
             <TextBox Grid.Row="1" x:Name="textBoxCelsius" Style="{StaticResource textBoxStyle}" />
-            <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="Convert" Click="ConvertCelsius" Style="{StaticResource buttonStyle}" />
-        </Grid>
+         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -66,7 +65,6 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Fahrenheit" Style="{StaticResource labelStyle}"/>
             <TextBox Grid.Row="1" x:Name="textBoxFahrenheit" Style="{StaticResource textBoxStyle}" />
-            <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"  Content="Convert" Click="ConvertFahrenheit" Style="{StaticResource buttonStyle}"/>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -78,10 +76,8 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Kelvin" Style="{StaticResource labelStyle}"/>
-            <TextBox Grid.Row="1" x:Name="textBoxKelvin" Style="{StaticResource textBoxStyle}" />
-            <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"  Content="Convert" Click="ConvertKelvin" Style="{StaticResource buttonStyle}"/>
+            <TextBox Grid.Row="1" Text="{Binding ElementName=kelvinSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"  x:Name="textBoxKelvin" Style="{StaticResource textBoxStyle}" />
         </Grid>
-       
-        
+        <Slider Name="kelvinSlider" Minimum="0" Maximum="1000" ValueChanged="SliderValueChanged" />
     </StackPanel>
 </Window>

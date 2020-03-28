@@ -62,5 +62,17 @@ namespace View
             textBoxFahrenheit.Text = fahr.ToString();
             textBoxCelsius.Text = cels.ToString();
         }
+
+        private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Double kelv = kelvinSlider.Value;
+
+            Double cels = kelv - 273.15;
+
+            Double fahr = cels * 9 / 5 + 32;
+
+            textBoxFahrenheit.Text = fahr.ToString();
+            textBoxCelsius.Text = cels.ToString();
+        }
     }
 }
