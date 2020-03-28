@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,54 +26,37 @@ namespace View
             InitializeComponent();
         }
 
-      
-
-        private void ConvertCelsius(object sender, RoutedEventArgs e)
+       /* private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Double cels = Double.Parse(textBoxCelsius.Text);
+            var kelvin = slider.Value;
+            var celsius = kelvin - 273.15;
+            var fahrenheit = celsius * 1.8 + 32;
 
-            Double fahr = cels * 9 / 5 + 32;
+            var kelvinString = kelvin.ToString();
+            var fahrenheitString = fahrenheit.ToString();
+            var celsiusString = celsius.ToString();
 
-            Double kelv = cels + 273.15;
+            fahrenheitTextBox.Text = fahrenheitString;
+            celsiusTextBox.Text = celsiusString;
+        }*/
+    }
 
-            textBoxFahrenheit.Text = fahr.ToString();
-            textBoxKelvin.Text = kelv.ToString();
+    public class CelsiusConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var kelvin = (double)value;
+            var celsius = kelvin - 273.15;
+
+            return celsius;
         }
 
-        private void ConvertFahrenheit(object sender, RoutedEventArgs e)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Double fahr = Double.Parse(textBoxFahrenheit.Text);
+            var celsius = double.Parse((string)value);
+            var kelvin = celsius + 273.15;
 
-            Double cels = (fahr - 32) * 5 / 9;
-
-            Double kelv = cels + 273.15;
-
-            textBoxCelsius.Text = cels.ToString();
-            textBoxKelvin.Text = kelv.ToString();
-        }
-
-        private void ConvertKelvin(object sender, RoutedEventArgs e)
-        {
-            Double kelv = Double.Parse(textBoxKelvin.Text);
-
-            Double cels = kelv - 273.15;
-
-            Double fahr = cels * 9 / 5 + 32;
-
-            textBoxFahrenheit.Text = fahr.ToString();
-            textBoxCelsius.Text = cels.ToString();
-        }
-
-        private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            Double kelv = kelvinSlider.Value;
-
-            Double cels = kelv - 273.15;
-
-            Double fahr = cels * 9 / 5 + 32;
-
-            textBoxFahrenheit.Text = fahr.ToString();
-            textBoxCelsius.Text = cels.ToString();
+            return kelvin;
         }
     }
 }
