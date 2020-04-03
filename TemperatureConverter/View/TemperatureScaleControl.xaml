@@ -43,11 +43,11 @@
         <TextBlock
             Grid.Row="0"
             Style="{StaticResource labelStyle}"
-            Text="{Binding Name}" />
+            Text="{Binding Path=Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}" />
         <TextBox
             Grid.Row="1"
             Style="{StaticResource textBoxStyle}"
-            Text="{Binding Path=Temperature.Value, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{Binding Path=Value,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},UpdateSourceTrigger=PropertyChanged}" />
 
 
         <Grid Grid.Row="1">
