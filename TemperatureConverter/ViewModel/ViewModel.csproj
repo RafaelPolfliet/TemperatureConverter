@@ -4,15 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FFB230D6-9C9C-493A-A4D6-92E34DECD334}</ProjectGuid>
+    <ProjectGuid>{49BFE277-2CB2-4FB4-A5FB-23B06C8D49E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ViewModel</RootNamespace>
     <AssemblyName>ViewModel</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,11 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cells\Cells.csproj">
-      <Project>{5be1850c-60c1-4475-baa8-c555c7a5777a}</Project>
+      <Project>{2184a289-93f2-4115-9488-0dcd19c529e8}</Project>
       <Name>Cells</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{9cac8e54-553e-414f-ae60-317131f539c1}</Project>
+      <Project>{d22db08e-2573-4a78-9ded-b5dae6fc2eba}</Project>
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
