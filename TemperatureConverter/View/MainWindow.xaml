@@ -40,8 +40,16 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <local:CelsiusConverter x:Key="CelsiusConverter"/>
-        <local:FahrenheitConverter x:Key="FahrenheitConverter"/>
+        <local:TemperatureConverter x:Key="CelsiusConverter">
+            <local:TemperatureConverter.TemperatureScale>
+                <local:CelsiusTemperatureScale/>
+            </local:TemperatureConverter.TemperatureScale>
+        </local:TemperatureConverter>
+        <local:TemperatureConverter x:Key="FahrenheitConverter">
+            <local:TemperatureConverter.TemperatureScale>
+                <local:FahrenheitTemperatureScale/>
+            </local:TemperatureConverter.TemperatureScale>
+        </local:TemperatureConverter>
     </Window.Resources>
     <StackPanel>
         <Grid>
